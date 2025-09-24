@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NetShield MX - Ciberseguridad para PYMEs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800">
+  <!-- Header / Hero -->
+  <header class="bg-[#0a2540] text-white text-center py-12 relative fade-in">
+    <div class="absolute top-4 left-6">
+      <img src="https://via.placeholder.com/150x50" alt="Logo NetShield" class="h-12">
+    </div>
+    <h1 class="text-3xl md:text-4xl font-bold">NetShield MX</h1>
+    <p class="mt-3 text-lg">Protege tu empresa de amenazas digitales sin complicaciones.</p>
+    <div class="mt-6 flex justify-center gap-4">
+      <a href="#form" class="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg text-white font-semibold transition-transform transform hover:scale-105">Prueba Gratis 7 Días</a>
+      <a href="#form" class="border border-white px-6 py-3 rounded-lg text-white font-semibold transition-transform transform hover:scale-105">Agendar Demo</a>
+    </div>
+  </header>
+
+  <!-- Metrics -->
+  <section class="bg-gray-100 py-12 fade-in" id="indicadores">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-4">
+      <div class="bg-white shadow-md rounded-xl p-6 text-center">
+        <h3 class="text-2xl font-bold text-[#0a2540]">$2.1M USD</h3>
+        <p class="mt-2">Costo medio de un ataque de ransomware en México.</p>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-6 text-center">
+        <h3 class="text-2xl font-bold text-[#0a2540]">43%</h3>
+        <p class="mt-2">De los ciberataques en México se dirigen a pymes y startups.</p>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-6 text-center">
+        <h3 class="text-2xl font-bold text-[#0a2540]">2 horas/día</h3>
+        <p class="mt-2">Tiempo perdido por empleados en sitios no laborales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="py-16 px-4 max-w-4xl mx-auto fade-in" id="quienes">
+    <h2 class="text-3xl font-bold text-center mb-6">Quiénes Somos</h2>
+    <p class="text-center text-lg">Somos una empresa mexicana enfocada en brindar soluciones simples y efectivas de filtrado web y ciberseguridad para startups, pymes y medianas empresas.</p>
+    <div class="grid md:grid-cols-2 gap-8 mt-12">
+      <div class="text-center">
+        <img src="https://via.placeholder.com/150" alt="CEO" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
+        <h3 class="font-semibold text-xl">Juan Pérez</h3>
+        <p class="text-gray-600">CEO - 10+ años en gestión tecnológica y operaciones.</p>
+      </div>
+      <div class="text-center">
+        <img src="https://via.placeholder.com/150" alt="CTO" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
+        <h3 class="font-semibold text-xl">Ana López</h3>
+        <p class="text-gray-600">CTO - Experta en ciberseguridad e infraestructura cloud.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section class="bg-gray-50 py-16 px-4 fade-in" id="paquetes">
+    <h2 class="text-3xl font-bold text-center mb-12">Paquetes y Servicios</h2>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div class="bg-white shadow-md rounded-xl p-8 text-center">
+        <h3 class="text-xl font-semibold mb-2">Starter Shield</h3>
+        <p>Filtrado básico, protección DNS, reportes mensuales.</p>
+        <p class="text-2xl text-[#0a2540] font-bold my-4">$49 USD/mes</p>
+        <button class="bg-[#0a2540] hover:bg-[#123d6b] text-white px-6 py-2 rounded-lg transition-transform transform hover:scale-105">Contratar</button>
+      </div>
+      <div class="bg-white shadow-xl border-2 border-orange-500 rounded-xl p-8 text-center">
+        <h3 class="text-xl font-semibold mb-2">Business Shield</h3>
+        <p>Control granular, listas personalizadas, reportes semanales.</p>
+        <p class="text-2xl text-[#0a2540] font-bold my-4">$149 USD/mes</p>
+        <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-transform transform hover:scale-105">Contratar</button>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-8 text-center">
+        <h3 class="text-xl font-semibold mb-2">Pro Shield</h3>
+        <p>Tráfico en tiempo real, alertas, integración con AD/Google Workspace.</p>
+        <p class="text-2xl text-[#0a2540] font-bold my-4">$399 USD/mes</p>
+        <button class="bg-[#0a2540] hover:bg-[#123d6b] text-white px-6 py-2 rounded-lg transition-transform transform hover:scale-105">Contratar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+  <section class="py-16 px-4 bg-gray-100 fade-in" id="clientes">
+    <h2 class="text-3xl font-bold text-center mb-12">Clientes y Casos de Éxito</h2>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+      <div class="bg-white shadow-md rounded-xl p-6">
+        <p>“NetShield MX nos permitió reducir en 40% las distracciones y mejorar la seguridad.”</p>
+        <p class="mt-4 font-semibold">CTO - Startup Fintech</p>
+      </div>
+      <div class="bg-white shadow-md rounded-xl p-6">
+        <p>“Protección sin complicaciones y soporte ágil. Ideal para nuestro crecimiento.”</p>
+        <p class="mt-4 font-semibold">CEO - Agencia Digital</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="py-16 px-4 fade-in" id="form">
+    <h2 class="text-3xl font-bold text-center mb-6">Solicita tu prueba gratuita</h2>
+    <form class="max-w-lg mx-auto bg-white shadow-md rounded-xl p-8 flex flex-col gap-4">
+      <input type="text" placeholder="Nombre" required class="border rounded-lg p-3">
+      <input type="email" placeholder="Email corporativo" required class="border rounded-lg p-3">
+      <input type="text" placeholder="Empresa" required class="border rounded-lg p-3">
+      <input type="number" placeholder="Número de empleados" required class="border rounded-lg p-3">
+      <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-transform transform hover:scale-105">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#0a2540] text-white text-center py-6 fade-in">
+    <p class="mb-2">Síguenos en redes sociales:
+      <a href="#" class="text-orange-500 hover:underline mx-1">LinkedIn</a>|
+      <a href="#" class="text-orange-500 hover:underline mx-1">Twitter</a>|
+      <a href="#" class="text-orange-500 hover:underline mx-1">Facebook</a>
+    </p>
+    <p>&copy; 2025 NetShield MX - Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const elements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
