@@ -1,157 +1,398 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perplexsec MX - Ciberseguridad para PYMEs</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PerplexSec — Servicios de Ciberseguridad</title>
+  <meta name="description" content="PerplexSec - Soluciones de ciberseguridad para pymes y startups. Paquetes de protección, detección y respuesta." />
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* Custom utility fallbacks for simple reveal animations */
+    .reveal-element { opacity: 0; transform: translateY(24px); transition: all 700ms cubic-bezier(.2,.9,.2,1); }
+    .reveal-element.revealed { opacity: 1; transform: translateY(0); }
+    /* CTA hover micro-interaction */
+    .btn-cta { transition: transform .18s ease, box-shadow .18s ease; }
+    .btn-cta:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 10px 30px rgba(16,24,40,0.12); }
+    /* subtle glass card */
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.04); }
+    /* Responsive fixed header spacing for demo */
+    .anchor-offset { scroll-margin-top: 92px; }
   </style>
 </head>
-<body class="font-sans text-gray-800">
-  <!-- Header / Hero -->
-  <header class="bg-[#0a2540] text-white text-center py-12 relative fade-in">
-    <div class="absolute top-4 left-6">
-      <img src="logo.jpg" alt="Logo NetShield" class="h-12">
-    </div>
-    <h1 class="text-3xl md:text-4xl font-bold">Perplexsec MX</h1>
-    <p class="mt-3 text-lg">Protege tu empresa de amenazas digitales sin complicaciones.</p>
-    <div class="mt-6 flex justify-center gap-4">
-      <a href="#form" class="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-lg text-white font-semibold transition-transform transform hover:scale-105">Prueba Gratis 7 Días</a>
-      <a href="#form" class="border border-white px-6 py-3 rounded-lg text-white font-semibold transition-transform transform hover:scale-105">Agendar Demo</a>
+<body class="bg-slate-900 text-slate-100 antialiased leading-relaxed">
+  <!-- Header -->
+  <header class="fixed w-full z-40 top-0 left-0 bg-gradient-to-b from-slate-900/80 via-transparent to-transparent backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+<a href="#hero" class="flex items-center gap-3">
+  <div class="w-12 h-12 rounded-lg overflow-hidden flex items-center justify-center">
+    <img src="logo.jpg" alt="PerplexSec Logo" class="w-full h-full object-cover">
+  </div>
+  <div class="hidden sm:block">
+    <h1 class="text-lg font-semibold">PerplexSec</h1>
+    <p class="text-xs text-slate-400">Ciberseguridad para pymes</p>
+  </div>
+</a>
+
+
+      <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+        <a href="#paquetes" class="hover:text-white">Paquetes</a>
+        <a href="#indicadores" class="hover:text-white">Indicadores</a>
+        <a href="#quienes" class="hover:text-white">Quiénes somos</a>
+        <a href="#casos" class="hover:text-white">Casos</a>
+        <a href="#contacto" class="rounded-md px-3 py-2 btn-cta bg-gradient-to-r from-indigo-500 to-cyan-400 text-slate-900 font-medium">Agendar demo</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button id="mobileBtn" class="p-2 rounded-md glass">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- Metrics -->
-  <section class="bg-gray-100 py-12 fade-in" id="indicadores">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 px-4">
-      <div class="bg-white shadow-md rounded-xl p-6 text-center">
-        <h3 class="text-2xl font-bold text-[#0a2540]">$2.1M USD</h3>
-        <p class="mt-2">Costo medio de un ataque de ransomware en México.</p>
+  <main class="pt-28">
+    <!-- HERO -->
+    <section id="hero" class="max-w-6xl mx-auto px-6 py-20 anchor-offset">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="reveal-element">
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">Protege tu empresa de amenazas digitales sin complicaciones.</h2>
+          <p class="mt-4 text-slate-300">Soluciones de filtrado web, detección y respuesta (EDR/XDR), y consultoría para pymes, startups y medianas empresas. Implementación rápida y resultados medibles.</p>
+
+          <div class="mt-8 flex gap-4 flex-wrap">
+            <a href="#paquetes" class="btn-cta inline-flex items-center gap-3 px-5 py-3 rounded-full font-semibold bg-gradient-to-r from-indigo-500 to-cyan-400 text-slate-900 shadow">Ver paquetes</a>
+            <a href="#contacto" class="inline-flex items-center gap-2 px-5 py-3 rounded-md border border-slate-700 text-sm text-slate-300 hover:text-white">Solicitar cotización</a>
+          </div>
+
+          <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3">
+            <div class="text-center">
+              <div class="text-2xl font-bold">99.9%</div>
+              <div class="text-xs text-slate-400">Disponibilidad de nuestros servicios</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold">+150</div>
+              <div class="text-xs text-slate-400">Incidentes detectados / mes</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold">4.8/5</div>
+              <div class="text-xs text-slate-400">Satisfacción promedio de clientes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal-element">
+          <div class="w-full h-80 rounded-2xl overflow-hidden glass p-6 flex flex-col justify-center items-center">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Ilustración ciberseguridad" class="w-full h-full object-cover rounded-lg shadow" />
+          </div>
+        </div>
       </div>
-      <div class="bg-white shadow-md rounded-xl p-6 text-center">
-        <h3 class="text-2xl font-bold text-[#0a2540]">43%</h3>
-        <p class="mt-2">De los ciberataques en México se dirigen a pymes y startups.</p>
+    </section>
+
+    <!-- INDICADORES / MÉTRICAS -->
+    <section id="indicadores" class="max-w-6xl mx-auto px-6 py-16 anchor-offset">
+      <div class="reveal-element">
+        <h3 class="text-2xl font-bold">Indicadores clave</h3>
+        <p class="text-slate-400 mt-2">Métricas que ayudan a entender el riesgo y el impacto económico.</p>
+
+        <div class="mt-6 grid gap-6 grid-cols-1 md:grid-cols-3">
+          <!-- Indicador 1 -->
+          <div class="p-6 rounded-xl glass">
+            <div class="text-sm uppercase text-slate-400">Costo medio de un ataque de ransomware en México</div>
+            <div class="mt-3 text-3xl font-extrabold">MXN $3,200,000*</div>
+            <div class="text-xs text-slate-400 mt-2">Incluye interrupción, recuperación y pérdida de datos (estimación de referencia).</div>
+          </div>
+
+          <!-- Indicador 2 suggested -->
+          <div class="p-6 rounded-xl glass">
+            <div class="text-sm uppercase text-slate-400">Tiempo medio de detección y respuesta (MTTR)</div>
+            <div class="mt-3 text-3xl font-extrabold">48 hrs</div>
+            <div class="text-xs text-slate-400 mt-2">Cuánto tardan, en promedio, las organizaciones en detectar y mitigar una brecha.</div>
+          </div>
+
+          <!-- Indicador 3 suggested -->
+          <div class="p-6 rounded-xl glass">
+            <div class="text-sm uppercase text-slate-400">% de empresas mexicanas afectadas por brechas</div>
+            <div class="mt-3 text-3xl font-extrabold">38%</div>
+            <div class="text-xs text-slate-400 mt-2">Porcentaje de empresas que reportaron una brecha o incidente en los últimos 12 meses.</div>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 mt-4">*Valores orientativos. Para cifras exactas y estudios detallados, ofrecemos un informe personalizado.</p>
       </div>
-      <div class="bg-white shadow-md rounded-xl p-6 text-center">
-        <h3 class="text-2xl font-bold text-[#0a2540]">2 horas/día</h3>
-        <p class="mt-2">Tiempo perdido por empleados en sitios no laborales.</p>
+    </section>
+
+    <!-- QUIÉNES SOMOS / TEAM -->
+    <section id="quienes" class="max-w-6xl mx-auto px-6 py-16 anchor-offset">
+      <div class="reveal-element">
+        <h3 class="text-2xl font-bold">Quiénes somos</h3>
+        <p class="text-slate-400 mt-2">Startup de ciberseguridad enfocada en proteger negocios con recursos limitados y necesidades crecientes de seguridad.</p>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-3 items-start">
+          <div class="col-span-2">
+            <p class="text-slate-300">PerplexSec nace para llevar protección proactiva a pymes y startups. Combinamos monitoreo 24/7, filtrado web, y respuesta ante incidentes con servicios gestionados y consultoría para madurar la seguridad tecnológica de nuestros clientes.</p>
+
+            <ul class="mt-6 space-y-3 text-slate-300">
+              <li>• Implementaciones rápidas (15-30 días) y onboarding guiado.</li>
+              <li>• Integración con herramientas existentes (SIEM, EDR, firewalls).</li>
+              <li>• SLA claros y reportes mensuales con métricas accionables.</li>
+            </ul>
+          </div>
+
+          <div class="space-y-6">
+            <!-- CEO -->
+            <div class="p-4 rounded-lg bg-gradient-to-br from-slate-800/50 to-slate-900 glass">
+              <div class="flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Foto CEO" class="w-16 h-16 rounded-full object-cover" />
+                <div>
+                  <div class="font-semibold">Rodrigo Villalpando</div>
+                  <div class="text-xs text-slate-400">CEO — Experiencia en operaciones y seguridad de infraestructura</div>
+                </div>
+              </div>
+              <p class="text-sm text-slate-300 mt-3">Ingeniero en Electrónica y Comunicaciones con experiencia liderando operaciones y optimización de activos tecnológicos. En Ecomining logró reducir pérdidas operativas implementando métricas y KPIs.</p>
+              <a href="#" class="mt-3 inline-block text-xs text-indigo-300 hover:underline">LinkedIn</a>
+            </div>
+
+            <!-- CTO -->
+            <div class="p-4 rounded-lg bg-gradient-to-br from-slate-800/50 to-slate-900 glass">
+              <div class="flex items-center gap-4">
+                <img src="https://images.unsplash.com/photo-1545996124-3a9a2d6e1bcd?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Foto CTO" class="w-16 h-16 rounded-full object-cover" />
+                <div>
+                  <div class="font-semibold">Mariana López</div>
+                  <div class="text-xs text-slate-400">CTO — Especialista en seguridad de redes y detección</div>
+                </div>
+              </div>
+              <p class="text-sm text-slate-300 mt-3">Arquitecta de soluciones de seguridad con experiencia en detección de intrusiones, SIEM y diseño de redes seguras para empresas medianas.</p>
+              <a href="#" class="mt-3 inline-block text-xs text-indigo-300 hover:underline">LinkedIn</a>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- PAQUETES Y SERVICIOS -->
+    <section id="paquetes" class="max-w-6xl mx-auto px-6 py-16 anchor-offset">
+      <div class="reveal-element">
+        <h3 class="text-2xl font-bold">Paquetes principales</h3>
+        <p class="text-slate-400 mt-2">Tres paquetes pensados para diferentes necesidades y presupuestos. Todos incluyen onboarding y reportes mensuales.</p>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <!-- Pack Básico -->
+          <article class="p-6 rounded-2xl glass border border-slate-800">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-lg font-semibold">Esencial</h4>
+                <p class="text-xs text-slate-400">Protección básica para startups y microempresas</p>
+              </div>
+              <div class="text-2xl font-extrabold">MXN $5,500</div>
+            </div>
+            <ul class="mt-4 text-slate-300 space-y-2 text-sm">
+              <li>• Filtrado web y control de contenido</li>
+              <li>• Monitoreo 24/7 (alertas básicas)</li>
+              <li>• Soporte por correo (SLA 72 hrs)</li>
+            </ul>
+            <div class="mt-6 flex gap-3">
+              <a href="#contacto" class="btn-cta rounded-full px-4 py-2 bg-indigo-600 text-white text-sm">Contratar</a>
+              <a href="#" class="text-xs text-slate-400 self-center">Ver detalles</a>
+            </div>
+          </article>
+
+          <!-- Pack Intermedio -->
+          <article class="p-6 rounded-2xl glass border border-slate-800">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-lg font-semibold">Protegido (más popular)</h4>
+                <p class="text-xs text-slate-400">Detección y respuesta para medianas empresas</p>
+              </div>
+              <div class="text-2xl font-extrabold">MXN $15,000</div>
+            </div>
+            <ul class="mt-4 text-slate-300 space-y-2 text-sm">
+              <li>• Todo en Esencial</li>
+              <li>• EDR gestionado y correlación con SIEM</li>
+              <li>• Soporte 24/7 (SLA 8 hrs)</li>
+            </ul>
+            <div class="mt-6 flex gap-3">
+              <a href="#contacto" class="btn-cta rounded-full px-4 py-2 bg-gradient-to-r from-indigo-500 to-cyan-400 text-slate-900 text-sm">Contratar</a>
+              <a href="#" class="text-xs text-slate-400 self-center">Ver detalles</a>
+            </div>
+          </article>
+
+          <!-- Pack Enterprise -->
+          <article class="p-6 rounded-2xl glass border border-slate-800">
+            <div class="flex items-center justify-between">
+              <div>
+                <h4 class="text-lg font-semibold">Enterprise</h4>
+                <p class="text-xs text-slate-400">Protección completa y servicios a medida</p>
+              </div>
+              <div class="text-2xl font-extrabold">MXN $40,000+</div>
+            </div>
+            <ul class="mt-4 text-slate-300 space-y-2 text-sm">
+              <li>• Todo en Protegido</li>
+              <li>• Respuesta a incidentes y consultoría forense</li>
+              <li>• Integraciones avanzadas y formación</li>
+            </ul>
+            <div class="mt-6 flex gap-3">
+              <a href="#contacto" class="btn-cta rounded-full px-4 py-2 bg-gradient-to-r from-amber-500 to-red-400 text-slate-900 text-sm">Contactar ventas</a>
+              <a href="#" class="text-xs text-slate-400 self-center">Ver demo</a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Addons -->
+        <div class="mt-8 p-6 rounded-xl glass">
+          <h4 class="font-semibold">Add-ons</h4>
+          <p class="text-slate-400 text-sm mt-2">Servicios adicionales que puedes agregar a cualquier paquete.</p>
+          <div class="mt-4 flex flex-wrap gap-3 text-sm">
+            <span class="px-3 py-1 rounded-full border border-slate-700">Auditoría de seguridad</span>
+            <span class="px-3 py-1 rounded-full border border-slate-700">Formación para equipos</span>
+            <span class="px-3 py-1 rounded-full border border-slate-700">Simulaciones de phishing</span>
+            <span class="px-3 py-1 rounded-full border border-slate-700">Respaldo y recuperación</span>
+            <span class="px-3 py-1 rounded-full border border-slate-700">Integración SIEM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTES & CASOS DE ÉXITO -->
+    <section id="casos" class="max-w-6xl mx-auto px-6 py-16 anchor-offset">
+      <div class="reveal-element">
+        <h3 class="text-2xl font-bold">Clientes y casos de éxito</h3>
+        <p class="text-slate-400 mt-2">Algunos clientes que confían en nosotros y resultados reales.</p>
+
+        <div class="mt-6 flex gap-6 items-center flex-wrap">
+          <!-- Simulated logos -->
+          <div class="w-32 h-12 rounded-lg bg-white/5 flex items-center justify-center text-slate-300">Cliente A</div>
+          <div class="w-32 h-12 rounded-lg bg-white/5 flex items-center justify-center text-slate-300">Cliente B</div>
+          <div class="w-32 h-12 rounded-lg bg-white/5 flex items-center justify-center text-slate-300">Cliente C</div>
+          <div class="w-32 h-12 rounded-lg bg-white/5 flex items-center justify-center text-slate-300">Cliente D</div>
+        </div>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
+          <article class="p-6 rounded-xl glass">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-indigo-600 flex items-center justify-center">S</div>
+              <div>
+                <div class="font-semibold">Caso: Recuperación tras ransomware</div>
+                <div class="text-xs text-slate-400">Cliente: Empresa logística</div>
+                <p class="mt-2 text-slate-300 text-sm">Implementamos EDR gestionado + respuesta a incidentes. Tiempo de inactividad reducido de 7 días a <48 horas; pérdidas mitigadas y lecciones implementadas para prevención.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="p-6 rounded-xl glass">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-lg bg-cyan-500 flex items-center justify-center">N</div>
+              <div>
+                <div class="font-semibold">Caso: Filtrado y continuidad</div>
+                <div class="text-xs text-slate-400">Cliente: Fintech</div>
+                <p class="mt-2 text-slate-300 text-sm">Desplegamos filtrado web y políticas de navegación para proteger datos sensibles. Reducción del 60% en eventos de fuga de datos y capacitación al equipo.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE LEADS -->
+    <section id="contacto" class="max-w-4xl mx-auto px-6 py-16 anchor-offset">
+      <div class="reveal-element">
+        <h3 class="text-2xl font-bold">¿Listo para proteger tu empresa?</h3>
+        <p class="text-slate-400 mt-2">Agenda una demo o solicita una cotización. Responderemos en máximo 24 horas hábiles.</p>
+
+        <form class="mt-6 bg-slate-900/40 p-6 rounded-xl glass grid gap-4">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input required type="text" name="nombre" placeholder="Nombre" class="p-3 rounded-md bg-slate-800 border border-slate-700" />
+            <input required type="email" name="email" placeholder="Correo electrónico" class="p-3 rounded-md bg-slate-800 border border-slate-700" />
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" name="empresa" placeholder="Empresa" class="p-3 rounded-md bg-slate-800 border border-slate-700" />
+            <select name="paquete" class="p-3 rounded-md bg-slate-800 border border-slate-700">
+              <option value="esencial">Esencial</option>
+              <option value="protegido">Protegido</option>
+              <option value="enterprise">Enterprise</option>
+            </select>
+          </div>
+
+          <textarea name="mensaje" rows="4" placeholder="Mensaje / descripción del requerimiento" class="p-3 rounded-md bg-slate-800 border border-slate-700"></textarea>
+
+          <div class="flex items-center gap-4">
+            <button type="submit" class="btn-cta px-5 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-cyan-400 text-slate-900 font-semibold">Enviar</button>
+            <div class="text-sm text-slate-400">O escríbenos a <a href="mailto:ventas@PerplexSec.mx" class="text-indigo-300 underline">ventas@PerplexSec.mx</a></div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- SOCIAL & FOOTER -->
+    <footer class="max-w-6xl mx-auto px-6 py-10 border-t border-slate-800 mt-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-slate-300">© 2025 PerplexSec — Todos los derechos reservados</div>
+        <div class="flex items-center gap-3">
+          <a href="#" class="p-2 rounded-full glass" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-200" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.3 2.4-2.3 4.9-2.3C23 8 24 12 24 16.6V24h-5v-6.4c0-1.5 0-3.5-2.2-3.5-2.2 0-2.5 1.7-2.5 3.4V24H8V8z"/></svg>
+          </a>
+          <a href="#" class="p-2 rounded-full glass" aria-label="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-200" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.6c-.9.4-1.8.6-2.8.8 1-.6 1.7-1.6 2-2.7-.9.6-2 .9-3.1 1.2C19 2.9 17.7 2 16.2 2c-2.5 0-4.6 2.1-4.6 4.7 0 .4 0 .8.1 1.1C7.7 7.6 4.1 5.9 1.7 3.1c-.4.6-.6 1.3-.6 2 0 1.6.8 3 2.1 3.8-.8 0-1.6-.2-2.2-.6v.1c0 2.1 1.5 3.9 3.4 4.3-.4.1-.8.2-1.2.2-.3 0-.6 0-.9-.1.6 2 2.4 3.4 4.6 3.4C6.7 18.5 4 19.4 1.2 19c2.2 1.4 4.8 2.2 7.6 2.2 9.1 0 14-7.7 14-14V6c.9-.6 1.6-1.4 2.2-2.4z"/></svg>
+          </a>
+          <a href="#" class="p-2 rounded-full glass" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-200" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.8.5.9 5.4.9 11.7c0 5 3.3 9.3 7.8 10.8.6.1.8-.3.8-.6v-2.1c-3.2.7-3.9-1.4-3.9-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1 .1 1.6.9 1.6.9 1.2 2.1 3.3 1.5 4 .1.1-.8.5-1.5 1-1.9-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.4-2.3 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2.9-.3 2-.5 3.1-.5 1.1 0 2.1.2 3.1.5 2.2-1.5 3.2-1.2 3.2-1.2.6 1.7.2 2.9.1 3.2.8.9 1.2 2 1.2 3.2 0 4.5-2.7 5.5-5.1 5.8.5.5.9 1.2.9 2.3v3.4c0 .3.2.7.8.6 4.5-1.5 7.8-5.8 7.8-10.8C23.1 5.4 18.2.5 12 .5z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-6 text-slate-500 text-sm">Diseño y desarrollo — PerplexSec. <span class="hidden sm:inline">Política de privacidad • Términos</span></div>
+    </footer>
+  </main>
+
+  <!-- Mobile menu (simple) -->
+  <div id="mobileMenu" class="fixed inset-0 z-50 bg-black/60 hidden">
+    <div class="absolute right-4 top-20 w-64 p-4 glass rounded-lg">
+      <nav class="flex flex-col gap-3">
+        <a href="#paquetes" class="py-2">Paquetes</a>
+        <a href="#indicadores" class="py-2">Indicadores</a>
+        <a href="#quienes" class="py-2">Quiénes somos</a>
+        <a href="#casos" class="py-2">Casos</a>
+        <a href="#contacto" class="py-2">Contacto</a>
+      </nav>
     </div>
-  </section>
-
-  <!-- About -->
-  <section class="py-16 px-4 max-w-4xl mx-auto fade-in" id="quienes">
-    <h2 class="text-3xl font-bold text-center mb-6">Quiénes Somos</h2>
-    <p class="text-center text-lg">Somos una empresa mexicana enfocada en brindar soluciones simples y efectivas de filtrado web y ciberseguridad para startups, pymes y medianas empresas.
-      Si bien las grandes empresas suelen contar con presupuestos dedicados a seguridad, las PyMEs y startups suelen carecer de recursos o experiencia interna, lo que las convierte en objetivos fáciles para atacantes que buscan comprometer datos sensibles o interrumpir operaciones. Esto abre una ventana de oportunidad para una propuesta de valor fresca, moderna e innovadora que ofrezca servicios accesibles y escalables.
-    </p>
-    <div class="grid md:grid-cols-2 gap-8 mt-12">
-      <div class="text-center">
-        <img src="https://via.placeholder.com/150" alt="CEO" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
-        <h3 class="font-semibold text-xl">Rodrigo Villalpando</h3>
-        <p class="text-gray-600">CEO, COO - 10+ años de experiencia en gestión tecnológica, operaciones y de negocios, 
-          ha ayudado a empresas durante su transformación digital,A lo largo de su carrera ha ocupado posiciones estratégicas como COO de Ecomining.io, donde implementó métricas de uptime y control de activos tecnológicos que generaron ahorros de más de MXN $400,000 mensuales y aumentaron la productividad en +20%. Previamente, como IT Key Account Manager en EDICOM, definió estrategias de ventas consultivas en el sector automotriz y tecnológico, incrementando la participación de mercado en un 5% y los ingresos en un 20% mediante planes de cuentas y proyectos de integración digital.
-
-Su experiencia incluye roles como Network Security Engineer en Rackspace, con enfoque en firewalls Cisco, switches y balanceadores F5; Sales Manager en Detecno, gestionando proyectos técnicos y equipos de ventas; y Consultor de Negocios y Tecnologías IT en Guidepoint y Ekomercio, asesorando en SaaS, iPaaS, facturación electrónica, integraciones ERP y cumplimiento con ISO 27001.
-
-Con un perfil híbrido en seguridad de redes, gestión operativa y liderazgo comercial, ha liderado equipos multidisciplinarios, diseñado estrategias de ventas y optimizado procesos en empresas de tecnología, telecomunicaciones, minería digital y software. Además, ha emprendido proyectos propios, como HostChilango, empresa de hosting y desarrollo web, y Pizza Amore, donde aplicó estrategias de marketing y gestión operativa para impulsar el crecimiento del negocio.
-
-Es Ingeniero en Electrónica y Comunicaciones con un Diplomado en Administración de Negocios y certificaciones en Networking, Blockchain, Project Management y Ciberseguridad. su última posición como ingeniero de seguridad y cripto en AWS le ha ayudado a tener una
-        mejor comprensión de las tecnologías cloud. </p>
-      </div>
-      <div class="text-center">
-        <img src="https://via.placeholder.com/150" alt="CTO" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
-        <h3 class="font-semibold text-xl">Natxieli Guzmán</h3>
-        <p class="text-gray-600">CTO - 10+ años de experiencia, experta en redes, ciberseguridad, firewalls e infraestructura. Cuenta con diversas certificaciones
-          del sector de TI. </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Packages -->
-  <section class="bg-gray-50 py-16 px-4 fade-in" id="paquetes">
-    <h2 class="text-3xl font-bold text-center mb-12">Paquetes y Servicios</h2>
-    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-      <div class="bg-white shadow-md rounded-xl p-8 text-center">
-        <h3 class="text-xl font-semibold mb-2">Starter Shield</h3>
-        <p>Filtrado básico, protección DNS, reportes mensuales.</p>
-        <p class="text-2xl text-[#0a2540] font-bold my-4">$49 USD/mes</p>
-        <button class="bg-[#0a2540] hover:bg-[#123d6b] text-white px-6 py-2 rounded-lg transition-transform transform hover:scale-105">Contratar</button>
-      </div>
-      <div class="bg-white shadow-xl border-2 border-orange-500 rounded-xl p-8 text-center">
-        <h3 class="text-xl font-semibold mb-2">Business Shield</h3>
-        <p>Control granular, listas personalizadas, reportes semanales.</p>
-        <p class="text-2xl text-[#0a2540] font-bold my-4">$149 USD/mes</p>
-        <button class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-transform transform hover:scale-105">Contratar</button>
-      </div>
-      <div class="bg-white shadow-md rounded-xl p-8 text-center">
-        <h3 class="text-xl font-semibold mb-2">Pro Shield</h3>
-        <p>Tráfico en tiempo real, alertas, integración con AD/Google Workspace.</p>
-        <p class="text-2xl text-[#0a2540] font-bold my-4">$399 USD/mes</p>
-        <button class="bg-[#0a2540] hover:bg-[#123d6b] text-white px-6 py-2 rounded-lg transition-transform transform hover:scale-105">Contratar</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clients -->
-  <section class="py-16 px-4 bg-gray-100 fade-in" id="clientes">
-    <h2 class="text-3xl font-bold text-center mb-12">Clientes y Casos de Éxito</h2>
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
-      <div class="bg-white shadow-md rounded-xl p-6">
-        <p>“NetShield MX nos permitió reducir en 40% las distracciones y mejorar la seguridad.”</p>
-        <p class="mt-4 font-semibold">CTO - Startup Fintech</p>
-      </div>
-      <div class="bg-white shadow-md rounded-xl p-6">
-        <p>“Protección sin complicaciones y soporte ágil. Ideal para nuestro crecimiento.”</p>
-        <p class="mt-4 font-semibold">CEO - Agencia Digital</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Form -->
-  <section class="py-16 px-4 fade-in" id="form">
-    <h2 class="text-3xl font-bold text-center mb-6">Solicita tu prueba gratuita</h2>
-    <form class="max-w-lg mx-auto bg-white shadow-md rounded-xl p-8 flex flex-col gap-4">
-      <input type="text" placeholder="Nombre" required class="border rounded-lg p-3">
-      <input type="email" placeholder="Email corporativo" required class="border rounded-lg p-3">
-      <input type="text" placeholder="Empresa" required class="border rounded-lg p-3">
-      <input type="number" placeholder="Número de empleados" required class="border rounded-lg p-3">
-      <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg transition-transform transform hover:scale-105">Enviar</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-[#0a2540] text-white text-center py-6 fade-in">
-    <p class="mb-2">Síguenos en redes sociales:
-      <a href="#" class="text-orange-500 hover:underline mx-1">LinkedIn</a>|
-      <a href="#" class="text-orange-500 hover:underline mx-1">TikTok</a>|
-      
-    </p>
-    <p>&copy; 2025 Perplexsec MX - Todos los derechos reservados.</p>
-  </footer>
+  </div>
 
   <script>
-    const elements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Simple reveal on scroll using IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+          entry.target.classList.add('revealed');
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.12 });
 
-    elements.forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal-element').forEach(el => {
+      el.classList.add('reveal-element');
+      observer.observe(el);
+    });
+
+    // Optional: smooth anchor scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const href = a.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // close mobile menu
+          if (!mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+        }
+      });
+    });
   </script>
 </body>
 </html>
